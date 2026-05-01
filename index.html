@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Talent Group — Global Talent & Opportunity Network</title>
+  <meta name="description" content="Apex Talent Group connects qualified candidates with hiring companies globally across all industries — tech, finance, healthcare, executive search, and more.">
+  <meta property="og:title" content="Apex Talent Group">
+  <meta property="og:description" content="Global Talent & Opportunity Network — connecting candidates with companies worldwide.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, sans-serif;
+      background: #0a0e27;
+      color: #e8eaf6;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f4e 50%, #0d2b4f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99, 179, 237, 0.1) 0%, transparent 60%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 24px 0;
+      z-index: 10;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #63b3ed, #4fd1c5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #63b3ed; }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 900px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(99, 179, 237, 0.1);
+      border: 1px solid rgba(99, 179, 237, 0.3);
+      border-radius: 100px;
+      font-size: 13px;
+      color: #63b3ed;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, #b8c5d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 20px;
+      color: #a0aec0;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #4299e1, #3182ce);
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(66, 153, 225, 0.4);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #e8eaf6;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Stats */
+    .stats {
+      padding: 80px 0;
+      background: #0d1342;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #63b3ed, #4fd1c5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      color: #a0aec0;
+      margin-top: 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Features */
+    .features {
+      padding: 120px 0;
+      background: #0a0e27;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-title h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .section-title p {
+      color: #a0aec0;
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 179, 237, 0.3);
+      background: rgba(99, 179, 237, 0.03);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4299e1, #3182ce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .feature-card p {
+      color: #a0aec0;
+    }
+
+    /* Industries */
+    .industries {
+      padding: 100px 0;
+      background: #0d1342;
+    }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .industry-tag {
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .industry-tag:hover {
+      background: rgba(99, 179, 237, 0.08);
+      border-color: rgba(99, 179, 237, 0.3);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 120px 0;
+      background: #0a0e27;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .cta-section p {
+      font-size: 18px;
+      color: #a0aec0;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0 40px;
+      background: #060920;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    footer .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+    }
+    footer h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #a0aec0;
+      margin-bottom: 16px;
+    }
+    footer a {
+      color: #cbd5e0;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    footer a:hover { color: #63b3ed; }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 24px 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: #718096;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      footer .container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">⚡ Apex Talent Group</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="badge">🌍 Global Talent & Opportunity Network</span>
+      <h1>Connecting talented professionals with the world's best opportunities.</h1>
+      <p class="subtitle">
+        Apex Talent Group bridges qualified candidates and hiring companies across all industries — 
+        from software engineering and finance to healthcare, executive leadership, and skilled trades — 
+        in 50+ countries worldwide.
+      </p>
+      <div class="cta-group">
+        <a href="#contact" class="btn btn-primary">Get In Touch →</a>
+        <a href="#about" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div>
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div>
+          <div class="stat-number">300+</div>
+          <div class="stat-label">Bounty Programs</div>
+        </div>
+        <div>
+          <div class="stat-number">600+</div>
+          <div class="stat-label">Talent Network</div>
+        </div>
+        <div>
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Always-On Matching</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Apex Talent Group</h2>
+        <p>Modern talent matching for a global, distributed workforce.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>AI-Powered Matching</h3>
+          <p>Every candidate is evaluated against company needs using state-of-the-art AI to find the strongest fits across skills, experience, and location.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Truly Global</h3>
+          <p>We operate across 50+ countries, sourcing talent from regional platforms and modern portfolio sites worldwide — not just LinkedIn.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Outreach</h3>
+          <p>Automated, hyper-personalized outreach via email, social, and direct message — qualified candidates respond within hours, not days.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Privacy-First</h3>
+          <p>Candidate consent is required before any submission. We never share data without permission and we operate fully within all platform terms.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <h3>All Industries</h3>
+          <p>From software engineers and quants to nurses, electricians, and executives — we serve every industry, not just tech.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Performance-Based</h3>
+          <p>Companies only pay for successful placements. No retainers, no upfront fees — just results-driven talent acquisition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="industries" id="industries">
+    <div class="container">
+      <div class="section-title">
+        <h2>Industries We Serve</h2>
+        <p>Talent matching across every sector of the global economy.</p>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-tag">Software Engineering</div>
+        <div class="industry-tag">Cybersecurity</div>
+        <div class="industry-tag">Web3 & Blockchain</div>
+        <div class="industry-tag">Quantitative Finance</div>
+        <div class="industry-tag">Investment Banking</div>
+        <div class="industry-tag">Healthcare</div>
+        <div class="industry-tag">Executive Search</div>
+        <div class="industry-tag">Product & Design</div>
+        <div class="industry-tag">Marketing & Sales</div>
+        <div class="industry-tag">Operations</div>
+        <div class="industry-tag">Legal</div>
+        <div class="industry-tag">Skilled Trades</div>
+        <div class="industry-tag">Education</div>
+        <div class="industry-tag">Manufacturing</div>
+        <div class="industry-tag">Logistics</div>
+        <div class="industry-tag">Hospitality</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2>Ready to find your next opportunity?</h2>
+      <p>
+        Whether you're a candidate looking for your next role or a company hiring at scale, 
+        we'd love to hear from you.
+      </p>
+      <a href="mailto:harith.recruiting@gmail.com" class="btn btn-primary">
+        ✉ harith.recruiting@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>
+        <div class="logo">⚡ Apex Talent Group</div>
+        <p style="color: #a0aec0; margin-top: 12px; font-size: 14px;">
+          Global Talent & Opportunity Network. Connecting professionals worldwide with the careers they deserve.
+        </p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:harith.recruiting@gmail.com">Support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Apex Talent Group. All rights reserved.</span>
+      <span>Built with care in California.</span>
+    </div>
+  </footer>
+</body>
+</html>
