@@ -435,14 +435,64 @@
     <div class="container">
       <h2>Ready to find your next opportunity?</h2>
       <p>
-        Whether you're a candidate looking for your next role or a company hiring at scale, 
-        we'd love to hear from you.
+        Tell us about yourself in 30 seconds and we'll match you to active openings paying
+        $1,000–$30,000 in referral bonuses. Free for candidates — companies pay us.
       </p>
-      <a href="mailto:harith.recruiting@gmail.com" class="btn btn-primary">
-        ✉ harith.recruiting@gmail.com
-      </a>
+
+      <form id="apex-form" style="max-width:560px; margin: 32px auto 0; text-align:left;">
+        <input id="f-name" required placeholder="Your full name"
+               style="width:100%; padding:14px 18px; margin-bottom:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#e8eaf6; font-size:15px;">
+        <input id="f-email" required type="email" placeholder="Your email"
+               style="width:100%; padding:14px 18px; margin-bottom:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#e8eaf6; font-size:15px;">
+        <input id="f-role" required placeholder="Your role / specialty (e.g. Senior Software Engineer, Pediatric Nurse, Smart Contract Auditor)"
+               style="width:100%; padding:14px 18px; margin-bottom:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#e8eaf6; font-size:15px;">
+        <input id="f-location" placeholder="Your location (city, country) — optional"
+               style="width:100%; padding:14px 18px; margin-bottom:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#e8eaf6; font-size:15px;">
+        <textarea id="f-notes" placeholder="One sentence about what you're looking for — optional"
+               style="width:100%; padding:14px 18px; margin-bottom:16px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#e8eaf6; font-size:15px; min-height:80px;"></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+          Send my background — match me to openings →
+        </button>
+        <p id="f-status" style="margin-top:14px; color:#a0aec0; font-size:14px; text-align:center;"></p>
+      </form>
+
+      <p style="margin-top:24px; color:#718096; font-size:13px;">
+        Or message our bot directly on
+        <a href="https://t.me/ApexTalentTrueBot" style="color:#63b3ed; text-decoration:none;">Telegram @ApexTalentTrueBot</a>
+        for instant matching in any language.
+      </p>
     </div>
   </section>
+
+  <script>
+    // Form submission via mailto: (works without a backend, completely free)
+    // For richer integrations later, swap to Formspree / Netlify Forms / your bot's webhook.
+    document.getElementById('apex-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name     = document.getElementById('f-name').value.trim();
+      var email    = document.getElementById('f-email').value.trim();
+      var role     = document.getElementById('f-role').value.trim();
+      var location = document.getElementById('f-location').value.trim();
+      var notes    = document.getElementById('f-notes').value.trim();
+
+      if (!name || !email || !role) {
+        document.getElementById('f-status').innerText = 'Please fill in name, email, and role.';
+        return;
+      }
+      var subject = encodeURIComponent('[APEX-INBOUND] ' + name + ' — ' + role);
+      var body = encodeURIComponent(
+        'Source: apex-talent-group.github.io form\n\n' +
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Role: ' + role + '\n' +
+        'Location: ' + location + '\n\n' +
+        'Notes:\n' + notes
+      );
+      window.location.href = 'mailto:harith.recruiting@gmail.com?subject=' + subject + '&body=' + body;
+      document.getElementById('f-status').innerText =
+        '✅ Opening your email app — just hit Send. We\'ll match you within 24h.';
+    });
+  </script>
 
   <footer>
     <div class="container">
