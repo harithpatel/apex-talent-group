@@ -1,0 +1,24 @@
+name: Generate SEO Pages
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Generate next batch of SEO pages
+        run: python generate_pages.py
+      
+      - name: Commit and push
+        run: |
+          git config user.name "SEO Bot"
+          git config user.email "bot@apex.ai"
+          git add *.html
+          git diff --staged --quiet || git commit -m "pSEO: add new converter pages"
+          git push
